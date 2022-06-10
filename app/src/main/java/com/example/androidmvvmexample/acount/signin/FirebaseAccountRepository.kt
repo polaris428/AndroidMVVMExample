@@ -6,8 +6,8 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
 class FirebaseAccountRepository(private var application: Application) {
-    val auth: FirebaseAuth = FirebaseAuth.getInstance();
-    fun login(email:String,password:String) {
+    private val auth: FirebaseAuth = FirebaseAuth.getInstance();
+    fun singIn(email:String,password:String) {
 
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful) {
@@ -20,7 +20,7 @@ class FirebaseAccountRepository(private var application: Application) {
         }
 
     }
-     fun createUser(email: String, password: String) {
+     fun sigUp(email: String, password: String) {
          Log.d(email,password)
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->

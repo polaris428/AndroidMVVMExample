@@ -10,15 +10,17 @@ class SignInViewModel(application: Application) : AndroidViewModel(application) 
     var paw = MutableLiveData<String>()
     private val firebaseRepository = FirebaseAccountRepository(application)
 
-    fun onLoginButton(view: View) {
-        firebaseRepository.login(email.toString(),paw.toString())
+    fun onSignInButton(view: View) {
+        firebaseRepository.singIn(email.toString(),paw.toString())
         Log.e("이메일", email.value.toString())
 
     }
-    fun onCreateUser(view: View){
-        firebaseRepository.createUser(email.value.toString(),paw.value.toString())
+    fun onSignUpButton(view: View){
+        firebaseRepository.sigUp(email.value.toString(),paw.value.toString())
     }
+    fun saveLoginDate(){
 
+    }
 
 
 }

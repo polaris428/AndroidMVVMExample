@@ -1,23 +1,21 @@
 package com.example.androidmvvmexample.acount.signin
 
 import android.app.Application
-import android.content.Context
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.lifecycle.*
-import kotlinx.coroutines.launch
 
-class SignInViewModel : ViewModel() {
+class SignInViewModel(application: Application) : AndroidViewModel(application) {
     val email = MutableLiveData<String>()
     var paw = MutableLiveData<String>()
-
+    private val todoRepository = FirebaseLoginRepository(application)
 
     fun onLoginButton(view: View) {
-
+        todoRepository.login(email.toString(),paw.toString())
         Log.e("sdflsadhfjsafkdhkdsdsdsd", email.value.toString())
 
     }
+
 
 
 }

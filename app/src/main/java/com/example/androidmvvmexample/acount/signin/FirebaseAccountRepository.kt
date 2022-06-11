@@ -3,22 +3,26 @@ package com.example.androidmvvmexample.acount.signin
 import android.app.Application
 import android.app.PendingIntent.getActivity
 import android.content.Context;
+import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.content.SharedPreferences
 import android.util.Log
 import android.widget.Toast
+import com.example.androidmvvmexample.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 
 
 class FirebaseAccountRepository(private var application: Application) {
     private val auth: FirebaseAuth = FirebaseAuth.getInstance();
-    fun singIn(email: String, password: String) {
+    fun singIn(email: String, password: String)  {
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener  {
 
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful) {
                 // Sign in success, update UI with the signed-in user's information
                 Toast.makeText(application.applicationContext, "성공", Toast.LENGTH_LONG).show()
+                var intent=Intent(application.applicationContext,MainActivity::class.java)
+                application.applicationContext.startActivity(intent.addFlags(FLAG_ACTIVITY_NEW_TASK))
             } else {
-
                 Toast.makeText(application.applicationContext, "실패", Toast.LENGTH_LONG).show()
             }
         }

@@ -13,12 +13,12 @@ class FirebaseAccountRepository(private var application: Application) {
     private val auth: FirebaseAuth = FirebaseAuth.getInstance();
     fun singIn(email: String, password: String) {
 
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful) {
                 // Sign in success, update UI with the signed-in user's information
                 Toast.makeText(application.applicationContext, "성공", Toast.LENGTH_LONG).show()
             } else {
-                // If sign in fails, display a message to the user.
+
                 Toast.makeText(application.applicationContext, "실패", Toast.LENGTH_LONG).show()
             }
         }

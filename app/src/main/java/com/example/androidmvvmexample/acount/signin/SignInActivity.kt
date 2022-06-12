@@ -14,8 +14,6 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var signInViewModel: SignInViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_signin)
-        signInViewModel = ViewModelProvider(this).get(SignInViewModel::class.java);
         initViewModel()
 
 
@@ -23,10 +21,10 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
-        //signInViewModel = ViewModelProvider(this).get(SignInViewModel::class.java)
+
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_signin)
+        signInViewModel = ViewModelProvider(this).get(SignInViewModel::class.java);
         mBinding!!.accountModel=signInViewModel
-
-
 
     }
 

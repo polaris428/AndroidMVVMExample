@@ -7,7 +7,7 @@ import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.content.SharedPreferences
 import android.util.Log
 import android.widget.Toast
-import com.example.androidmvvmexample.main.MainActivity
+import com.example.androidmvvmexample.writing.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 
 

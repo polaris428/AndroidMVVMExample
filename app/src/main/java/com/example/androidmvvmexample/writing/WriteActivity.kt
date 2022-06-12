@@ -1,14 +1,12 @@
-package com.example.androidmvvmexample.main
+package com.example.androidmvvmexample.writing
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.androidmvvmexample.R
 
-class MainActivity : AppCompatActivity() {
+class WriteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        setContentView(R.layout.activity_write)
     }
-
 }

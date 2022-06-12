@@ -1,14 +1,10 @@
 package com.example.androidmvvmexample.acount.signin
 
 import android.app.Application
-import android.content.Intent
 
 import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.lifecycle.*
-import com.example.androidmvvmexample.MainActivity
 
 class SignInViewModel(application: Application) : AndroidViewModel(application) {
     var context=application

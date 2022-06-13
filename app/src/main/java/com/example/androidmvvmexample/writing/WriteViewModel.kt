@@ -15,5 +15,9 @@ class WriteViewModel(application: Application): AndroidViewModel(application) {
 
     fun writing(view:View){
         writingFirebase.writing(title.value.toString(),content.value.toString())
+        getWriting()
+    }
+    fun getWriting(){
+        writingFirebase.getWriteDate()
     }
 }

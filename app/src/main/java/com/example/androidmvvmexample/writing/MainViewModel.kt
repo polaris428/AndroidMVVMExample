@@ -14,4 +14,5 @@ class MainViewModel(application: Application ): AndroidViewModel(application) {
         context.applicationContext.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
 
     }
+
 }

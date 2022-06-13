@@ -8,11 +8,20 @@ import com.example.androidmvvmexample.R
 import com.example.androidmvvmexample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private  var binding:ActivityMainBinding?=null
+    private lateinit  var binding:ActivityMainBinding
     private lateinit var mainViewModel: MainViewModel
+    private lateinit var myAdapter: WritingListAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initViewModel()
+        binding.writeListRecyclerView.adapter=WritingListAdapter()
+        myAdapter= WritingListAdapter()
+        binding.writeListRecyclerView.adapter = myAdapter
+        myAdapter.listData = mutableListOf(
+            WritingData("Han","24"),
+            WritingData("LL","24")
+        )
+
 
     }
 

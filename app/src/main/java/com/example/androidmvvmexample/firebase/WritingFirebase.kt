@@ -4,7 +4,7 @@ import android.app.Application
 import android.content.Intent
 import android.util.Log
 import com.example.androidmvvmexample.writing.MainActivity
-import com.example.androidmvvmexample.writing.WritingData
+import com.example.androidmvvmexample.writing.recyclerView.WritingData
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener

@@ -1,7 +1,5 @@
-package com.example.androidmvvmexample.writing
+package com.example.androidmvvmexample.writing.recyclerView
 
-import android.os.Parcel
-import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +10,7 @@ class WritingListAdapter() : RecyclerView.Adapter<WritingListAdapter.ViewHolder>
     var listData = mutableListOf<WritingData>()
 
     class ViewHolder(val binding: ItemWriteListBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(writingData: WritingData ) {
+        fun bind(writingData: WritingData) {
             binding.itemData = writingData
         }
     }

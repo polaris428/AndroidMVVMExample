@@ -6,6 +6,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.androidmvvmexample.R
 import com.example.androidmvvmexample.databinding.ActivityMainBinding
+import com.example.androidmvvmexample.writing.recyclerView.WritingData
+import com.example.androidmvvmexample.writing.recyclerView.WritingListAdapter
 
 class MainActivity : AppCompatActivity() {
     private lateinit  var binding:ActivityMainBinding
@@ -14,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initViewModel()
-        binding.writeListRecyclerView.adapter=WritingListAdapter()
+        binding.writeListRecyclerView.adapter= WritingListAdapter()
         myAdapter= WritingListAdapter()
         binding.writeListRecyclerView.adapter = myAdapter
         myAdapter.listData = mutableListOf(

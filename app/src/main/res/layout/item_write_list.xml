@@ -5,7 +5,7 @@
     <data>
         <variable
             name="itemData"
-            type="com.example.androidmvvmexample.writing.WritingData" />
+            type="com.example.androidmvvmexample.writing.recyclerView.WritingData" />
     </data>
     
     

@@ -9,14 +9,15 @@ import com.example.androidmvvmexample.databinding.ActivityWriteBinding
 
 class WriteActivity : AppCompatActivity() {
     private var binding:ActivityWriteBinding?=null
-    private lateinit  var writeViewModel:WriteViewModel
+    private lateinit  var mainViewModel:MainViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init()
     }
     fun  init(){
-        binding=DataBindingUtil.setContentView(this,R.layout.activity_write)
-        writeViewModel=ViewModelProvider(this).get(WriteViewModel::class.java)
-        binding!!.writeModel=writeViewModel
+      
+        binding= DataBindingUtil.setContentView(this,R.layout.activity_write)
+        mainViewModel=ViewModelProvider(this).get(MainViewModel::class.java)
+        binding!!.mainViewModel=mainViewModel
     }
 }

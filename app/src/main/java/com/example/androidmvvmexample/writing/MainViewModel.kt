@@ -13,7 +13,8 @@ import com.example.androidmvvmexample.writing.recyclerView.WritingListAdapter
 
 class MainViewModel(application: Application ): AndroidViewModel(application) {
     var context=application
-
+    var title=MutableLiveData<String>()
+    var content=MutableLiveData<String>()
     private val repo = WritingFirebase(application)
     fun fetchData(): LiveData<MutableList<WritingData>> {
         val mutableData = MutableLiveData<MutableList<WritingData>>()
@@ -29,5 +30,13 @@ class MainViewModel(application: Application ): AndroidViewModel(application) {
 
     }
 
+
+    fun writing(view:View){
+        repo.writing(title.value.toString(),content.value.toString())
+        getWriting()
+    }
+    fun getWriting(){
+        repo.getWriteDate()
+    }
 
 }

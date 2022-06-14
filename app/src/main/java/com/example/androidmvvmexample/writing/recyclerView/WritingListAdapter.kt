@@ -1,5 +1,6 @@
 package com.example.androidmvvmexample.writing.recyclerView
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +18,9 @@ class WritingListAdapter() : RecyclerView.Adapter<WritingListAdapter.ViewHolder>
     class ViewHolder(val binding: ItemWriteListBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(writingData: WritingData) {
             binding.itemData = writingData
+            binding.root.setOnClickListener {
+                Log.d("클릭","??????????")
+            }
         }
     }
 

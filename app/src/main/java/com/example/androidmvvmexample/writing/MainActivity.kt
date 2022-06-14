@@ -1,5 +1,6 @@
 package com.example.androidmvvmexample.writing
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -31,10 +32,11 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun observerData(){
         mainViewModel.fetchData().observe(this, Observer {
             myAdapter.setData(it)
-
+            myAdapter.notifyDataSetChanged()
         })
     }
 

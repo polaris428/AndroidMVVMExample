@@ -9,6 +9,11 @@ import com.example.androidmvvmexample.databinding.ItemWriteListBinding
 class WritingListAdapter() : RecyclerView.Adapter<WritingListAdapter.ViewHolder>() {
     var listData = mutableListOf<WritingData>()
 
+
+    fun setData(data:MutableList<WritingData>){
+        listData = data
+    }
+
     class ViewHolder(val binding: ItemWriteListBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(writingData: WritingData) {
             binding.itemData = writingData

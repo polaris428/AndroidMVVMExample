@@ -3,6 +3,8 @@ package com.example.androidmvvmexample.firebase
 import android.app.Application
 import android.content.Intent
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.androidmvvmexample.writing.MainActivity
 import com.example.androidmvvmexample.writing.recyclerView.WritingData
 import com.google.firebase.database.DataSnapshot
@@ -12,8 +14,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 
-class WritingFirebase
-    (var application: Application) {
+class WritingFirebase(var application: Application) {
     private val database = Firebase.database
     private val myRef = database.getReference("writing")
     fun writing(title: String, content: String) {
@@ -39,6 +40,28 @@ class WritingFirebase
             }
         })
 
+
+    }
+
+        fun getData(): LiveData<MutableList<WritingData>> {
+            val mutableData = MutableLiveData<MutableList<WritingData>>()
+            myRef.addValueEventListener(object : ValueEventListener {
+                val listData: MutableList<WritingData> = mutableListOf<WritingData>()
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()){
+                        for (userSnapshot in snapshot.children){
+                            val getData = userSnapshot.getValue(WritingData::class.java)
+                            listData.add(getData!!)
+
+                            mutableData.value = listData
+                        }
+                    }
+                }
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+            return mutableData
 
     }
 

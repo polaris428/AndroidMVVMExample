@@ -3,6 +3,7 @@ package com.example.androidmvvmexample.writing
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.androidmvvmexample.R
 import com.example.androidmvvmexample.databinding.ActivityMainBinding
@@ -16,22 +17,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initViewModel()
-        binding.writeListRecyclerView.adapter= WritingListAdapter()
+
         myAdapter= WritingListAdapter()
         binding.writeListRecyclerView.adapter = myAdapter
-        myAdapter.listData = mutableListOf(
-            WritingData("Han","24"),
-            WritingData("LL","24")
-        )
-
+        observerData()
 
     }
 
     private fun initViewModel() {
         binding= DataBindingUtil.setContentView(this, R.layout.activity_main)
         mainViewModel=ViewModelProvider(this).get(MainViewModel::class.java)
-        binding!!.mainViewModel=mainViewModel
+        binding.mainViewModel=mainViewModel
 
+    }
+
+    fun observerData(){
+        mainViewModel.fetchData().observe(this, Observer {
+            myAdapter.setData(it)
+
+        })
     }
 
 }

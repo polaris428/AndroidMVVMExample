@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AndroidMVVMExample"
         tools:targetApi="31">
         <activity
-            android:name=".ReadActivity"
+            android:name=".writing.read.ReadActivity"
             android:exported="false" />
         <activity
             android:name=".acount.signin.SignInActivity"
@@ -27,10 +27,10 @@
         </activity>
         <activity
             android:name=".writing.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".writing.WriteActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

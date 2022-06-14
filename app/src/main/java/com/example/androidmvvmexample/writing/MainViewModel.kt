@@ -11,7 +11,9 @@ import com.example.androidmvvmexample.firebase.WritingFirebase
 import com.example.androidmvvmexample.writing.recyclerView.WritingData
 import com.example.androidmvvmexample.writing.recyclerView.WritingListAdapter
 
-class MainViewModel(application: Application ): AndroidViewModel(application) {
+class MainViewModel(application: Application): AndroidViewModel(application) {
+
+
     var context=application
     var title=MutableLiveData<String>()
     var content=MutableLiveData<String>()
